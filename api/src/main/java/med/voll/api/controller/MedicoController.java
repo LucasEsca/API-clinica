@@ -3,13 +3,13 @@ package med.voll.api.controller;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import java.net.URI;
-import med.voll.api.direccion.DatosDireccion;
-import med.voll.api.medico.DatosActualizarMedico;
-import med.voll.api.medico.DatosListadoMedico;
-import med.voll.api.medico.DatosRegistroMedico;
-import med.voll.api.medico.DatosRespuestaMedico;
-import med.voll.api.medico.Medico;
-import med.voll.api.medico.MedicoRepository;
+import med.voll.api.domain.direccion.DatosDireccion;
+import med.voll.api.domain.medico.DatosActualizarMedico;
+import med.voll.api.domain.medico.DatosListadoMedico;
+import med.voll.api.domain.medico.DatosRegistroMedico;
+import med.voll.api.domain.medico.DatosRespuestaMedico;
+import med.voll.api.domain.medico.Medico;
+import med.voll.api.domain.medico.MedicoRepository;
 import org.springframework.data.domain.Pageable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -77,5 +77,4 @@ public class MedicoController {
                         medico.getDireccion().getComplemento()));
         return ResponseEntity.ok(datosMedico);
     }
-
 }
