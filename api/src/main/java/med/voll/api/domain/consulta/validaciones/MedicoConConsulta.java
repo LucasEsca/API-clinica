@@ -20,5 +20,4 @@ public class MedicoConConsulta implements  ValidadorDeConsultas{
             throw new ValidationException("este medico ya tiene una consulta en ese horario");
         }
     }
-    
 }

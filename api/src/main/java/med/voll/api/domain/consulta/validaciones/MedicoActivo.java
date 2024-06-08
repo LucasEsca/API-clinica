@@ -20,5 +20,4 @@ public class MedicoActivo implements ValidadorDeConsultas{
             throw new ValidationException("No se puede permitir agendar citas con medicos inactivos en el sistema");
         }
     }
-    
 }

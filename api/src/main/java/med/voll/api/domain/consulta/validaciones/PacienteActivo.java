@@ -21,5 +21,4 @@ public class PacienteActivo implements ValidadorDeConsultas{
             throw new ValidationException("No se puede permitir agendar citas con pacientes inactivos en el sistema");
         }
     }
-    
 }
