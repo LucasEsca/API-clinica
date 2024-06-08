@@ -5,13 +5,13 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
+import med.voll.api.domain.usuarios.Usuario;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
-import med.voll.api.domain.medico.usuarios.Usuario;
 
 @Service
 public class TokenService {
@@ -57,4 +57,5 @@ public class TokenService {
     private Instant generarFechaExpiracion() {
         return LocalDateTime.now().plusHours(2).toInstant(ZoneOffset.of("-05:00"));
     }
+
 }

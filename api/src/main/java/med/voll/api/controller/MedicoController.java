@@ -1,22 +1,19 @@
 package med.voll.api.controller;
 
+
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
-import java.net.URI;
 import med.voll.api.domain.direccion.DatosDireccion;
-import med.voll.api.domain.medico.DatosActualizarMedico;
-import med.voll.api.domain.medico.DatosListadoMedico;
-import med.voll.api.domain.medico.DatosRegistroMedico;
-import med.voll.api.domain.medico.DatosRespuestaMedico;
-import med.voll.api.domain.medico.Medico;
-import med.voll.api.domain.medico.MedicoRepository;
-import org.springframework.data.domain.Pageable;
+import med.voll.api.domain.medico.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
+
+import java.net.URI;
 
 @RestController
 @RequestMapping("/medicos")
@@ -26,6 +23,7 @@ public class MedicoController {
     private MedicoRepository medicoRepository;
 
     @PostMapping
+    @Transactional
     public ResponseEntity<DatosRespuestaMedico> registrarMedico(@RequestBody @Valid DatosRegistroMedico datosRegistroMedico,
                                                                 UriComponentsBuilder uriComponentsBuilder) {
         Medico medico = medicoRepository.save(new Medico(datosRegistroMedico));
@@ -77,4 +75,5 @@ public class MedicoController {
                         medico.getDireccion().getComplemento()));
         return ResponseEntity.ok(datosMedico);
     }
+
 }
